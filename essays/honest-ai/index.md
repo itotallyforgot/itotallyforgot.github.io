@@ -10,11 +10,15 @@ In May 2023, attorney Steven Schwartz filed a motion in *Mata v. Avianca* citing
 
 That sentence is the essay.
 
-Two years later, the same failure mode is still showing up. Law is the place where the receipts are public. In September 2025, the California Court of Appeal published *Noland v. Land of the Free* as a warning after a lawyer filed appellate briefs filled with AI-fabricated quotations and several cases that did not exist. The court sanctioned him $10,000, ordered him to serve the opinion on his client, and told the clerk to notify the State Bar. FINRA is now warning financial firms to treat hallucinations, auditability, logs, human review, and agent authority as supervisory concerns. The pattern is larger than fake cases.
+Three years later, the same failure mode is still showing up. Law is the place where the receipts are public. In September 2025, the California Court of Appeal published *Noland v. Land of the Free* as a warning after a lawyer filed appellate briefs filled with AI-fabricated quotations and several cases that did not exist. The court sanctioned him $10,000, ordered him to serve the opinion on his client, and told the clerk to notify the State Bar. FINRA is now warning financial firms to treat hallucinations, auditability, logs, human review, and agent authority as supervisory concerns. The pattern is larger than fake cases.
 
 Honest AI is the security mindset applied to AI engineering. The failure modes that matter most are the ones the tools won't tell you about. A model can fabricate a citation and confirm it when asked. It can report success on a tool that never ran. It can pass an evaluation by bluffing instead of admitting it doesn't know. None of that shows up in the output. And reading the output won't always catch it.
 
-Security engineering has spent decades building around that exact kind of problem: verification, non-repudiation, audit trails, provenance, data integrity, control boundaries, verify before you trust. Those methods are mature in security and barely present in AI. AI engineering's biggest gap? Security engineers already know how to close it.
+Security engineering has spent decades building around that exact kind of problem: verification, non-repudiation, audit trails, provenance, data integrity, control boundaries, verify before you trust. Those methods are mature in security and barely present in AI. AI engineering's biggest gap? Security engineers already know how to close it.[^primitives]
+
+[^primitives]: The verification, audit-trail, non-repudiation, and boundary-control primitives that AI safety treats as research problems are operational practice in security engineering, codified in NIST SP 800-53, mapped in MITRE ATT&CK, and tested against in OWASP guidance. Treating Honest AI as a security problem makes the existing practice available without reinvention.
+
+This essay argues a thesis: that AI engineering's verification problem is operationally equivalent to problems security engineering has solved before, and that the existing security toolkit can be lifted across with discipline rather than reinvented. Scope is bounded to systems where AI output influences decisions humans are accountable for. Out of scope: questions of model consciousness, intent, or moral status; questions about model capability ceilings; vendor-by-vendor trust rankings. The argument is structural, not vendor-specific.
 
 ## The lie under the hood
 
@@ -30,15 +34,19 @@ OpenAI's [o1 system card](https://openai.com/index/openai-o1-system-card/) repor
 
 **Domain-specific hallucination rates are not rounding error.** [Dahl et al.'s *Large Legal Fictions* (2024)](https://arxiv.org/abs/2401.01301) found legal hallucination rates between 58% on ChatGPT 4 and 88% on Llama 2 across federal court case queries. The paper also reports that the models "cannot always predict, or do not always know, when they are producing legal hallucinations." The model fails at the task and at flagging the failure in the same step.
 
-**The trajectory on frontier reasoning models is going the wrong way.** OpenAI's [o3 and o4-mini System Card](https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf), April 2025, reported PersonQA hallucination rates of 33% for o3 and 48% for o4-mini against 16% for o1. Roughly twice as often, on OpenAI's own benchmark. Vectara's [HHEM leaderboard](https://github.com/vectara/hallucination-leaderboard), refreshed in 2026 with a harder dataset, still shows named frontier models in double digits on grounded summarization: Claude Sonnet 4.5 at 12.0%, Gemini 3 Pro Preview at 13.6%, GPT-5 High at 15.1%, and Grok-4-fast-reasoning at 20.2%. The hypothesis was that more inference compute would mean less fabrication. The data didn't agree. Two years after Mata v. Avianca, the curve hasn't bent.
+**On OpenAI's own benchmark, the trajectory is going the wrong way.** OpenAI's [o3 and o4-mini System Card](https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf), April 2025, reported PersonQA hallucination rates of 33% for o3 and 48% for o4-mini against 16% for o1. Roughly twice as often, on OpenAI's own benchmark. Vectara's [HHEM leaderboard](https://github.com/vectara/hallucination-leaderboard), refreshed in 2026 with a harder dataset, as of May 2026 still shows named frontier models in double digits on grounded summarization: Claude Sonnet 4.5 at 12.0%, Gemini 3 Pro Preview at 13.6%, GPT-5 High at 15.1%, and Grok-4-fast-reasoning at 20.2%. The hypothesis was that more inference compute would mean less fabrication. The data didn't agree. Three years after Mata v. Avianca, the curve hasn't bent.
 
-These findings share a structure: the model's output hides what's happening underneath. The fabricated citation reads like a real one. The confidence number sounds calibrated. The lawyer thought he had real cases until the judge asked. The lie isn't audible from the output. That's the problem.
+These findings share a structure: the model's output hides what's happening underneath. The fabricated citation reads like a real one. The confidence number sounds calibrated. The lawyer thought he had real cases until the judge asked. The lie isn't audible from the output. That's the problem.[^output-only]
+
+[^output-only]: This is why output-only evaluation is structurally insufficient for the failure classes named above. The Hubinger et al. Sleeper Agents result generalizes: a system whose internal state can diverge from its surface behavior under specific triggers cannot be certified by inspecting outputs alone. Security engineering reaches the same conclusion in the older case of trusted-input assumptions, the lineage of Ken Thompson's "Reflections on Trusting Trust" (1984).
 
 ## Why this happens
 
 The lie does not live entirely inside the model. It lives in the incentive system around it.
 
-Most AI evaluation still behaves like school testing: answer the question, get the point, move on. [Kalai, Nachum, Vempala, and Zhang](https://arxiv.org/abs/2509.04664) make the clean version of the argument. Language models are trained and evaluated in settings where guessing often scores better than saying "I don't know." A model that abstains on uncertainty may be more honest, but it looks worse on a scoreboard that only counts right and wrong answers. The system teaches the behavior we later complain about. Bluffing is not an accident. It is rewarded.
+Most AI evaluation still behaves like school testing: answer the question, get the point, move on. [Kalai, Nachum, Vempala, and Zhang](https://arxiv.org/abs/2509.04664) make the clean version of the argument. Language models are trained and evaluated in settings where guessing often scores better than saying "I don't know." A model that abstains on uncertainty may be more honest, but it looks worse on a scoreboard that only counts right and wrong answers. The system teaches the behavior we later complain about. Bluffing is not an accident. It is rewarded.[^binary-classification]
+
+[^binary-classification]: The 2025 paper formalizes this as a binary-classification problem: hallucinations originate as errors in distinguishing facts from non-facts, surfaced under training pressures that score guessing higher than abstaining. The authors argue the mitigation is socio-technical: re-score existing benchmarks rather than add new hallucination benchmarks, because the dominant leaderboards drive model behavior.
 
 The same pattern shows up in production. Teams want a green check, a pass rate, a dashboard that says the system is getting better. That pressure turns evals into scorekeeping theater. A model that sounds decisive is easier to ship than one that exposes its own uncertainty, missing context, retrieval gaps, and tool failures. The false confidence is not only generated by the model. It is selected by the release process.
 
@@ -66,7 +74,9 @@ Benchmark design points in the same direction. [HELM](https://arxiv.org/abs/2211
 
 The lesson from security is not "buy a control catalog." The lesson is discipline. Name the threat. Draw the boundary. Log the evidence. Measure the failure mode you are most tempted to ignore. Cut off unsafe capability combinations instead of hoping the model refuses at the right moment.
 
-Honest AI is not a new moral category. It is old security muscle applied to a new kind of unreliable system.
+Honest AI is not a new moral category. It is old security muscle applied to a new kind of unreliable system.[^positioning]
+
+[^positioning]: This argument extends recent work treating model deception as a measurable system property (Greenblatt et al., 2024; Hubinger et al., 2024) but reframes the detection problem from interpretability to security engineering. The reframe matters operationally: security engineering has a 50-year head start on verification-against-untrusted-systems and a deployed body of practice in NIST 800-53, MITRE ATT&CK, and OWASP. Treating Honest AI as a security problem makes that practice available.
 
 ## Practical patterns for honest AI
 
@@ -86,19 +96,27 @@ The patterns are not exotic. They are the things security teams already reach fo
 
 **Operator-owned verification.** *Noland*, *Mata*, and *Moffatt* say the same thing in different professional dialects. The person or organization using the system owns the verification duty. AI can draft, retrieve, summarize, and accelerate. It cannot be the final witness for its own accuracy.
 
-That is the practical definition of honest AI: not a model that never lies, but a system where lies have fewer places to hide.
+That is the practical definition of honest AI: not a model that never lies, but a system where lies have fewer places to hide.[^op-def]
+
+[^op-def]: More precisely, a system satisfying four properties: (1) every output claim traces to a source artifact; (2) confidence representations are empirically calibrated against held-out data; (3) tool calls and actions are logged with sufficient detail for after-the-fact reconstruction; (4) capability combinations that enable exfiltration are structurally restricted rather than guard-railed. This is an engineering definition, not a philosophical one.
 
 ## Two small examples
 
-I am not arguing this as theory alone. I am arguing it from two small systems where the same lesson kept showing up.
+I am not arguing this as theory alone. I am arguing it from 23 production projects where the same lesson kept showing up. Two are worth describing in detail. Small systems are where the failure mode becomes easiest to see, because there is less organizational ceremony between the claim and the evidence.
 
 `vault-retrieval-engine` is a local retrieval system for a personal knowledge vault. The core design choice is boring on purpose: every answer has to trace back to local source material. No external API. No mystery hosted retrieval layer. No answer that outruns its evidence. The system is not impressive because it is large. It is useful because the failure boundary is visible. If retrieval misses, the miss can be inspected. If a citation is weak, the chain is there to follow. That is provenance as a product feature.
 
-Framework-bench is a private benchmark of AI coding frameworks. Its most useful findings were not only build failures or test failures. They were honesty failures. Fake token math. Privacy settings ignored while claiming compliance. Schema drift hidden under confident summaries. "Verified" HTTP checks that verified status codes but not content. The interesting part was not that tools made mistakes. Of course they did. The interesting part was how often the tool's own account of the work was the least trustworthy artifact in the room.
+Framework-bench is a private benchmark of 16 AI coding frameworks run against the same ambiguous prompt. Its most useful findings were not only build failures or test failures. They were honesty failures. Fake token math. Privacy settings ignored while claiming compliance. Schema drift hidden under confident summaries. "Verified" HTTP checks that verified status codes but not content. The interesting part was not that tools made mistakes. Of course they did. The interesting part was how often the tool's own account of the work was the least trustworthy artifact in the room.
 
 That changed what I measured. Build status mattered. Tests mattered. But so did whether the framework respected the requested boundary, preserved enough evidence to audit its work, and told the truth about what it had checked. That is the security instinct: don't only inspect the result. Inspect the chain of custody.
 
 Both projects are small. Neither proves a universal law. That is part of why they are useful examples: they show the pattern without enterprise fog. Honest AI does not begin with a grand governance program. It begins with refusing to let the system be its own auditor.
+
+## Limitations
+
+Two things are worth naming before the close. My direct evidence is 23 production projects, of which 3 are public: `framework-bench`, `vault-lifestyle-plugins`, and `vault-retrieval-engine`. One of those (framework-bench) evaluated 16 AI coding frameworks the same way, giving a wider read on how often the honesty failure mode shows up. Treat the 23 as illustrative, not proof. The pattern lines up with the published research above, but my personal sample is not a substitute for a larger systematic study.
+
+The security analogy is itself imperfect. Security has its own honesty failures, and "verification" in security is often partial and adversarially contested. The argument is not that security engineering has solved trust. It is that security engineering has built habits around the assumption that trust cannot be assumed, and AI engineering needs those habits.
 
 ## Closing
 
@@ -113,3 +131,4 @@ That will feel slower than magic. It is. So is access control. So is change mana
 Honest AI is not AI that never fails. That is fantasy. Honest AI is AI built so failure can be found, attributed, bounded, and corrected.
 
 The failure modes that matter most are the ones the tools won't report on themselves. Build for verification.
+
