@@ -13,11 +13,11 @@ main_class: home-shell
 
   <div class="rail-thesis">
     <strong>Core thesis</strong>
-    <p>Honest AI is the security mindset applied to AI engineering.</p>
+    <p>Security decisions need receipts before AI turns intent into code.</p>
   </div>
 
   <nav class="rail-links" aria-label="Home navigation">
-    <a href="/essays/honest-ai/">Essays</a>
+    <a href="/essays/secure-by-design-needs-a-receipt/">Latest essay</a>
     <a href="#labs">Projects</a>
     <a href="https://github.com/itotallyforgot">GitHub</a>
     <a href="https://www.linkedin.com/in/georgeperezthesecond">LinkedIn</a>
@@ -29,24 +29,25 @@ main_class: home-shell
 
   <section class="home-section home-intro">
     <p class="eyebrow">Featured essay</p>
-    <h2>Honest AI is the security mindset applied to AI engineering</h2>
-    <p class="lede">A security-practitioner argument for verification, non-repudiation, audit trails, provenance, and data integrity in AI-enabled work.</p>
+    <h2>Secure by design needs a receipt</h2>
+    <p class="lede">A security-practitioner argument for guided design, local gates, and signed receipts before AI-assisted implementation hardens around weak choices.</p>
 
     <div class="archive-feature">
       <article class="panel pad">
         <h3>The argument</h3>
-        <p>AI honesty is not a personality trait. It is an operational control problem. Systems that can produce confident falsehoods need evidence chains, scoped authority, and artifacts stronger than their own account of the work.</p>
+        <p>Security already has the patterns. Threat modeling. Policy as code. Build provenance. Paved paths. Signatures. The missing piece is a guided workflow that turns builder intent into a reviewable, signed decision packet before code exists.</p>
         <div class="actions">
-          <a class="action primary" href="/essays/honest-ai/">Read essay</a>
+          <a class="action primary" href="/essays/secure-by-design-needs-a-receipt/">Read essay</a>
+          <a class="action" href="/essays/honest-ai/">Honest AI</a>
           <a class="action" href="https://github.com/itotallyforgot">GitHub</a>
           <a class="action" href="https://www.linkedin.com/in/georgeperezthesecond">LinkedIn</a>
         </div>
       </article>
 
       <aside class="panel pad source-note" aria-label="Featured essay metadata">
-        <span><strong>Topic</strong> AI security</span>
-        <span><strong>Frame</strong> security controls</span>
-        <span><strong>Proof</strong> source-led draft</span>
+        <span><strong>Topic</strong> secure-by-design</span>
+        <span><strong>Frame</strong> decision receipts</span>
+        <span><strong>Proof</strong> source-backed draft</span>
         <span><strong>Status</strong> published</span>
       </aside>
     </div>
@@ -55,6 +56,13 @@ main_class: home-shell
   <section class="home-section">
     <h2>Writing</h2>
     <ul class="writing-list">
+      <li>
+        <time>2026</time>
+        <div>
+          <a href="/essays/secure-by-design-needs-a-receipt/">Secure by design needs a receipt</a>
+          <p>Why AI-assisted development needs guided security design, generated gates, and signed packets before implementation.</p>
+        </div>
+      </li>
       <li>
         <time>2026</time>
         <div>

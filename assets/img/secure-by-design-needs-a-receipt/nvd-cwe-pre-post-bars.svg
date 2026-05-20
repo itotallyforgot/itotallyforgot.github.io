@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Awareness is not the control</title>
+  <desc id="desc">Horizontal comparison chart showing NVD CWE assignment hits for CWE-787, CWE-120, and CWE-125 before and after CISA's February 2025 buffer-overflow alert. Pre-alert counts are 362, 30, and 135. Post-alert counts are 257, 124, and 153.</desc>
+  <defs>
+    <style>
+      .bg { fill: #1A1A1A; }
+      .surface { fill: #2A2A2A; stroke: #9A9A9A; stroke-width: 1.5; stroke-opacity: 0.55; }
+      .ink { fill: #E8E0D5; }
+      .muted { fill: #9A9A9A; }
+      .signal { fill: #F76E25; }
+      .pre { fill: #9A9A9A; }
+      .track { fill: #1A1A1A; stroke: #9A9A9A; stroke-width: 1; stroke-opacity: 0.28; }
+      .rule { stroke: #F76E25; stroke-width: 2; }
+      .soft-rule { stroke: #9A9A9A; stroke-width: 1; stroke-opacity: 0.24; }
+      text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 0; }
+      .title { font-size: 58px; font-weight: 760; }
+      .subtitle { font-size: 27px; font-weight: 430; }
+      .eyebrow { font-size: 18px; font-weight: 720; text-transform: uppercase; letter-spacing: 1.4px; }
+      .card-label { font-size: 20px; font-weight: 520; }
+      .card-value { font-size: 46px; font-weight: 780; }
+      .row-title { font-size: 25px; font-weight: 760; }
+      .row-copy { font-size: 19px; font-weight: 430; }
+      .legend { font-size: 21px; font-weight: 650; }
+      .value { font-size: 22px; font-weight: 760; }
+      .small { font-size: 19px; font-weight: 430; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+
+  <text class="title ink" x="90" y="105">Awareness is not the control</text>
+  <text class="subtitle muted" x="92" y="150">NVD CWE assignment hits around CISA's February 2025 buffer-overflow alert</text>
+
+  <g transform="translate(1042,72)">
+    <rect class="surface" x="0" y="0" width="368" height="116" rx="18"/>
+    <text class="eyebrow muted" x="28" y="35">Comparable windows</text>
+    <text class="card-label muted" x="28" y="72">Pre-alert</text>
+    <text class="card-value ink" x="28" y="108">527</text>
+    <line class="soft-rule" x1="170" y1="52" x2="170" y2="98"/>
+    <text class="card-label muted" x="198" y="72">Post-alert</text>
+    <text class="card-value signal" x="198" y="108">534</text>
+  </g>
+
+  <g transform="translate(90,220)">
+    <rect class="surface" x="0" y="0" width="1420" height="520" rx="24"/>
+
+    <g transform="translate(44,48)">
+      <rect class="pre" x="0" y="-22" width="28" height="28" rx="6"/>
+      <text class="legend ink" x="42" y="0">Pre-alert</text>
+      <rect class="signal" x="178" y="-22" width="28" height="28" rx="6"/>
+      <text class="legend ink" x="220" y="0">Post-alert</text>
+      <text class="small muted" x="958" y="0">Counts are CWE query hits, not unique CVEs.</text>
+    </g>
+
+    <line class="soft-rule" x1="44" y1="84" x2="1376" y2="84"/>
+
+    <g transform="translate(44,126)">
+      <text class="row-title ink" x="0" y="0">CWE-787</text>
+      <text class="row-copy muted" x="0" y="32">Out-of-bounds write</text>
+      <rect class="track" x="420" y="-18" width="720" height="28" rx="14"/>
+      <rect class="pre" x="420" y="-18" width="652" height="28" rx="14"/>
+      <text class="value ink" x="1090" y="4">362</text>
+      <rect class="track" x="420" y="30" width="720" height="28" rx="14"/>
+      <rect class="signal" x="420" y="30" width="463" height="28" rx="14"/>
+      <text class="value ink" x="902" y="52">257</text>
+    </g>
+
+    <line class="soft-rule" x1="44" y1="246" x2="1376" y2="246"/>
+
+    <g transform="translate(44,288)">
+      <text class="row-title ink" x="0" y="0">CWE-120</text>
+      <text class="row-copy muted" x="0" y="32">Buffer copy without checking size</text>
+      <rect class="track" x="420" y="-18" width="720" height="28" rx="14"/>
+      <rect class="pre" x="420" y="-18" width="54" height="28" rx="14"/>
+      <text class="value ink" x="492" y="4">30</text>
+      <rect class="track" x="420" y="30" width="720" height="28" rx="14"/>
+      <rect class="signal" x="420" y="30" width="223" height="28" rx="14"/>
+      <text class="value ink" x="662" y="52">124</text>
+    </g>
+
+    <line class="soft-rule" x1="44" y1="408" x2="1376" y2="408"/>
+
+    <g transform="translate(44,450)">
+      <text class="row-title ink" x="0" y="0">CWE-125</text>
+      <text class="row-copy muted" x="0" y="32">Out-of-bounds read</text>
+      <rect class="track" x="420" y="-18" width="720" height="28" rx="14"/>
+      <rect class="pre" x="420" y="-18" width="243" height="28" rx="14"/>
+      <text class="value ink" x="682" y="4">135</text>
+      <rect class="track" x="420" y="30" width="720" height="28" rx="14"/>
+      <rect class="signal" x="420" y="30" width="275" height="28" rx="14"/>
+      <text class="value ink" x="714" y="52">153</text>
+    </g>
+  </g>
+
+  <line class="rule" x1="90" y1="800" x2="1510" y2="800"/>
+  <text class="small muted" x="90" y="838">Source: NVD CVE API 2.0. Queried 2026-05-19; rechecked 2026-05-20.</text>
+  <text class="small muted" x="90" y="866">Comparable windows, not a causality claim. The point is narrower: warning alone is not a control.</text>
+</svg>

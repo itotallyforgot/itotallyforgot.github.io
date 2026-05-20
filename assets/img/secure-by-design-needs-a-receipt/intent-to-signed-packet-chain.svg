@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Intent to signed packet</title>
+  <desc id="desc">Horizontal process diagram showing builder intent moving through guided security questions, category decisions, standards mapping, generated gates, review evidence, and a signed packet.</desc>
+  <defs>
+    <style>
+      .bg { fill: #1A1A1A; }
+      .ink { fill: #E8E0D5; }
+      .muted { fill: #9A9A9A; }
+      .node { fill: #2A2A2A; stroke: #9A9A9A; stroke-width: 2; }
+      .node-start { fill: #2A2A2A; stroke: #9A9A9A; }
+      .node-mid { fill: #2A2A2A; stroke: #F76E25; }
+      .node-gate { fill: #2A2A2A; stroke: #F76E25; }
+      .node-end { fill: #2A2A2A; stroke: #F76E25; }
+      .arrow { stroke: #9A9A9A; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+      .pill { fill: #2A2A2A; stroke: #9A9A9A; stroke-width: 2; }
+      .rule { stroke: #F76E25; stroke-width: 2; }
+      text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .title { font-size: 54px; font-weight: 760; letter-spacing: 0; }
+      .subtitle { font-size: 27px; font-weight: 430; }
+      .node-title { font-size: 24px; font-weight: 760; }
+      .node-copy { font-size: 17px; font-weight: 460; }
+      .pill-text { font-size: 20px; font-weight: 650; }
+      .caption { font-size: 24px; font-weight: 620; }
+      .small { font-size: 20px; font-weight: 450; }
+    </style>
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1,1 L11,6 L1,11 Z" fill="#9A9A9A"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+  <text class="title ink" x="90" y="105">From intent to signed packet</text>
+  <text class="subtitle muted" x="92" y="150">The product is the guided path. The receipt is what survives review.</text>
+
+  <g transform="translate(70,238)">
+    <g transform="translate(0,0)">
+      <rect class="node node-start" x="0" y="0" width="176" height="170" rx="18"/>
+      <text class="node-title ink" x="24" y="52">Builder</text>
+      <text class="node-title ink" x="24" y="82">intent</text>
+      <text class="node-copy muted" x="24" y="124">What are you</text>
+      <text class="node-copy muted" x="24" y="148">trying to build?</text>
+    </g>
+    <path class="arrow" marker-end="url(#arrowhead)" d="M188 85 H242"/>
+
+    <g transform="translate(254,0)">
+      <rect class="node" x="0" y="0" width="176" height="170" rx="18"/>
+      <text class="node-title ink" x="22" y="45">Guided</text>
+      <text class="node-title ink" x="22" y="75">security</text>
+      <text class="node-title ink" x="22" y="105">questions</text>
+      <text class="node-copy muted" x="22" y="144">Ask early.</text>
+    </g>
+    <path class="arrow" marker-end="url(#arrowhead)" d="M442 85 H496"/>
+
+    <g transform="translate(508,0)">
+      <rect class="node node-mid" x="0" y="0" width="176" height="170" rx="18"/>
+      <text class="node-title ink" x="22" y="52">Category</text>
+      <text class="node-title ink" x="22" y="82">decisions</text>
+      <text class="node-copy muted" x="22" y="124">Choose paths.</text>
+      <text class="node-copy muted" x="22" y="148">Reject others.</text>
+    </g>
+    <path class="arrow" marker-end="url(#arrowhead)" d="M696 85 H750"/>
+
+    <g transform="translate(762,0)">
+      <rect class="node node-mid" x="0" y="0" width="176" height="170" rx="18"/>
+      <text class="node-title ink" x="22" y="52">Standards</text>
+      <text class="node-title ink" x="22" y="82">mapping</text>
+      <text class="node-copy muted" x="22" y="124">Name the basis.</text>
+      <text class="node-copy muted" x="22" y="148">Make it traceable.</text>
+    </g>
+    <path class="arrow" marker-end="url(#arrowhead)" d="M950 85 H1004"/>
+
+    <g transform="translate(1016,0)">
+      <rect class="node node-gate" x="0" y="0" width="176" height="170" rx="18"/>
+      <text class="node-title ink" x="22" y="52">Generated</text>
+      <text class="node-title ink" x="22" y="82">gates</text>
+      <text class="node-copy muted" x="22" y="124">Turn decisions</text>
+      <text class="node-copy muted" x="22" y="148">into controls.</text>
+    </g>
+    <path class="arrow" marker-end="url(#arrowhead)" d="M1204 85 H1258"/>
+
+    <g transform="translate(1270,0)">
+      <rect class="node" x="0" y="0" width="176" height="170" rx="18"/>
+      <text class="node-title ink" x="22" y="52">Review</text>
+      <text class="node-title ink" x="22" y="82">evidence</text>
+      <text class="node-copy muted" x="22" y="124">What survived</text>
+      <text class="node-copy muted" x="22" y="148">human review?</text>
+    </g>
+  </g>
+
+  <path class="arrow" marker-end="url(#arrowhead)" d="M790 444 C790 502, 790 520, 790 572"/>
+
+  <g transform="translate(535,584)">
+    <rect class="node node-end" x="0" y="0" width="530" height="126" rx="20"/>
+    <text class="node-title ink" x="30" y="48">Signed packet</text>
+    <text class="node-copy muted" x="30" y="82">Decision, rejection, standard, and gate.</text>
+    <text class="node-copy muted" x="30" y="106">Review evidence and signature.</text>
+  </g>
+
+  <g transform="translate(122,742)">
+    <rect class="pill" x="0" y="0" width="190" height="52" rx="26"/>
+    <text class="pill-text ink" x="31" y="34">identity-auth</text>
+    <rect class="pill" x="210" y="0" width="205" height="52" rx="26"/>
+    <text class="pill-text ink" x="239" y="34">data-handling</text>
+    <rect class="pill" x="435" y="0" width="245" height="52" rx="26"/>
+    <text class="pill-text ink" x="463" y="34">ai-tool-boundaries</text>
+    <rect class="pill" x="700" y="0" width="190" height="52" rx="26"/>
+    <text class="pill-text ink" x="724" y="34">secrets-egress</text>
+    <rect class="pill" x="910" y="0" width="185" height="52" rx="26"/>
+    <text class="pill-text ink" x="935" y="34">logging-audit</text>
+    <rect class="pill" x="1115" y="0" width="305" height="52" rx="26"/>
+    <text class="pill-text ink" x="1140" y="34">implementation-hygiene</text>
+  </g>
+
+  <line class="rule" x1="90" y1="832" x2="1510" y2="832"/>
+  <text class="small muted" x="90" y="868">Use the model to help author. Freeze the packet before validation. Let CI enforce the boundary.</text>
+</svg>
