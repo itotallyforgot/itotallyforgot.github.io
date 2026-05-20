@@ -17,7 +17,7 @@ main_class: home-shell
   </div>
 
   <nav class="rail-links" aria-label="Home navigation">
-    <a href="/essays/secure-by-design-needs-a-receipt/">Latest essay</a>
+    <a href="/essays/">Essays</a>
     <a href="#labs">Projects</a>
     <a href="https://github.com/itotallyforgot">GitHub</a>
     <a href="https://www.linkedin.com/in/georgeperezthesecond">LinkedIn</a>
@@ -38,6 +38,7 @@ main_class: home-shell
         <p>Security already has the patterns. Threat modeling. Policy as code. Build provenance. Paved paths. Signatures. The missing piece is a guided workflow that turns builder intent into a reviewable, signed decision packet before code exists.</p>
         <div class="actions">
           <a class="action primary" href="/essays/secure-by-design-needs-a-receipt/">Read essay</a>
+          <a class="action" href="/essays/">All essays</a>
           <a class="action" href="/essays/honest-ai/">Honest AI</a>
           <a class="action" href="https://github.com/itotallyforgot">GitHub</a>
           <a class="action" href="https://www.linkedin.com/in/georgeperezthesecond">LinkedIn</a>

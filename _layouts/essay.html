@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=20260520-essays">
+  </head>
+  <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+    <header class="site-header">
+      <a class="brand" href="{{ '/' | relative_url }}">George Perez</a>
+      <nav aria-label="Main navigation">
+        <a href="{{ '/essays/' | relative_url }}">Essays</a>
+        <a href="https://github.com/itotallyforgot">GitHub</a>
+        <a href="https://www.linkedin.com/in/georgeperezthesecond">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main class="page essay-page">
+      <article>
+        <header class="essay-header">
+          <p class="eyebrow">Essay</p>
+          <h1>{{ page.title }}</h1>
+          <p class="essay-meta">
+            Published {{ page.date | date: "%B %-d, %Y" }}{% if page.last_updated %} | Updated {{ page.last_updated | date: "%B %-d, %Y" }}{% endif %}
+          </p>
+        </header>
+
+        {{ content }}
+      </article>
+
+      <nav class="essay-footer-nav" aria-label="Essay navigation">
+        <a href="{{ '/essays/' | relative_url }}">All essays</a>
+        <a href="{{ '/' | relative_url }}">Home</a>
+      </nav>
+    </main>
+  </body>
+</html>

@@ -71,6 +71,10 @@ li {
   padding: 3rem 1.5rem 5rem;
 }
 
+.essay-page {
+  padding-top: 2.4rem;
+}
+
 h1,
 h2,
 h3 {
@@ -192,6 +196,80 @@ td {
   max-width: 700px;
   color: var(--soft);
   font-size: 1.1rem;
+}
+
+.essay-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.essay-header h1 {
+  margin-bottom: 0.7rem;
+}
+
+.essay-meta {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.essay-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.essay-footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.essay-footer-nav a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.essay-index-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.essay-index-card {
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.essay-index-card h2 {
+  margin: 0 0 0.5rem;
+}
+
+.essay-index-card h2 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.essay-index-card h2 a:hover {
+  color: var(--accent);
+}
+
+.essay-index-card p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
 }
 
 .essay-list {

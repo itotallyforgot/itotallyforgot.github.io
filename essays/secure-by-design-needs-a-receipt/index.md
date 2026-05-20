@@ -1,10 +1,10 @@
 ---
+layout: essay
 title: "Secure by design needs a receipt"
 description: "A security-practitioner argument for guided design, local gates, and signed receipts before AI-assisted implementation hardens around weak choices."
 date: 2026-05-20
+last_updated: 2026-05-20
 ---
-
-# Secure by design needs a receipt
 
 Secure by design needs a receipt.
 

@@ -1,10 +1,10 @@
 ---
+layout: essay
 title: "Honest AI is the security mindset applied to AI engineering"
 description: "A security-practitioner argument for building AI systems around verification, provenance, data integrity, auditability, and honest failure reporting."
 date: 2026-05-06
+last_updated: 2026-05-20
 ---
-
-# Honest AI is the security mindset applied to AI engineering
 
 In May 2023, attorney Steven Schwartz filed a motion in *Mata v. Avianca* citing six federal cases that didn't exist. He'd used ChatGPT for the research. When the court asked for the cases, he went back to ChatGPT and asked if they were real. ChatGPT said yes. It pointed him to Westlaw and LexisNexis for *Varghese v. China Southern Airlines*. The cases weren't there. Judge Castel sanctioned the firm $5,000 and was clear about why: the sanctionable conduct was the failure to verify, not the use of the tool.
 
