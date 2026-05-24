@@ -1,0 +1,11 @@
+{%- comment -%}
+GoatCounter analytics. Privacy-respecting: no cookies, no PII, no fingerprinting.
+Self-host or change vendor by editing this single file.
+
+Dashboard: https://itotallyforgot.goatcounter.com/
+Decision-record: wiki/topics/github-pages-analytics-options.md (in Second-Brain vault).
+{%- endcomment -%}
+{%- unless jekyll.environment == "development" -%}
+<script data-goatcounter="https://itotallyforgot.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+{%- endunless -%}
