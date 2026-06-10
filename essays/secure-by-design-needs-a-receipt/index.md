@@ -3,7 +3,7 @@ layout: essay
 title: "Secure by design needs a receipt"
 description: "A security-practitioner argument for guided design, local gates, and signed receipts before AI-assisted implementation hardens around weak choices."
 date: 2026-05-20
-last_updated: 2026-05-20
+last_updated: 2026-06-10
 ---
 
 Secure by design needs a receipt.
@@ -87,9 +87,7 @@ That distinction matters. The goal is not an expert filling out better paperwork
 
 The builder might be a lawyer trying to spin up a small internal app. It might be a young startup team without a security staff. It might be a security enablement team trying to make safe choices cheaper for everyone else.
 
-![The Far Side, Midvale School for the Gifted, by Gary Larson.](/assets/img/secure-by-design-needs-a-receipt/the-far-side-midvale-school-for-the-gifted.png)
-
-*The Far Side, "Midvale School for the Gifted", by Gary Larson. It works here because effort is not the same thing as a usable path.*
+*Gary Larson's "Midvale School for the Gifted" belongs here — the kid pushing hard on the school door marked PULL. Effort is not the same thing as a usable path. Larson asks that his cartoons not be reposted online, so the panel stays where it lives: in print and at [thefarside.com](https://www.thefarside.com/).*
 
 The tool should ask the questions security teams usually ask too late: who can use it, what data it touches, where secrets live, what the model can see, what it can change, which paved paths fit, and what gates prove the boundary held.
 
