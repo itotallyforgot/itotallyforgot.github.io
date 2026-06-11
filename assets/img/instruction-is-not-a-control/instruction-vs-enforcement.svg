@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="760" height="430" fill="#ffffff"/>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#e8590c"/>
+    </marker>
+  </defs>
+
+  <!-- top band -->
+  <rect x="16" y="24" width="728" height="168" rx="10" fill="#fff5f0" stroke="#f3d3c2"/>
+  <text x="32" y="48" font-size="13" font-weight="700" fill="#c4520a">INSTRUCTION LAYER · negotiable, the agent can reason about it</text>
+
+  <!-- instruction box (dashed = soft) -->
+  <rect x="56" y="86" width="232" height="62" rx="8" fill="#ffffff" stroke="#e8590c" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <text x="172" y="113" font-size="13" fill="#333" text-anchor="middle">Instruction</text>
+  <text x="172" y="132" font-size="12" fill="#777" text-anchor="middle">"refuse / run the tests"</text>
+
+  <!-- agent box -->
+  <rect x="470" y="84" width="190" height="66" rx="8" fill="#ffffff" stroke="#bbb" stroke-width="1.6"/>
+  <text x="565" y="116" font-size="15" font-weight="700" fill="#333" text-anchor="middle">AGENT / MODEL</text>
+
+  <!-- "reasons around it" loop, stays above the divider -->
+  <path d="M470,108 C360,40 290,40 250,86" fill="none" stroke="#e8590c" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="360" y="44" font-size="12.5" font-style="italic" fill="#c4520a" text-anchor="middle">reasons around it</text>
+
+  <!-- boundary -->
+  <line x1="16" y1="214" x2="744" y2="214" stroke="#1a1a1a" stroke-width="3"/>
+  <text x="380" y="232" font-size="12.5" font-weight="700" fill="#1a1a1a" text-anchor="middle" letter-spacing="0.5">agent-visibility boundary  (the agent cannot see or argue below this line)</text>
+
+  <!-- bottom band -->
+  <rect x="16" y="246" width="728" height="168" rx="10" fill="#f0f8f3" stroke="#cfe8d8"/>
+  <text x="32" y="270" font-size="13" font-weight="700" fill="#2b7a44">ENFORCEMENT LAYER · structural, non-negotiable</text>
+
+  <!-- 4 control boxes -->
+  <g font-size="13" fill="#1f5c34" text-anchor="middle">
+    <rect x="32" y="300" width="162" height="86" rx="8" fill="#ffffff" stroke="#2f9e44" stroke-width="1.6"/>
+    <text x="113" y="338">Network</text><text x="113" y="356">boundary</text>
+    <rect x="206" y="300" width="162" height="86" rx="8" fill="#ffffff" stroke="#2f9e44" stroke-width="1.6"/>
+    <text x="287" y="347">Hash gate</text>
+    <rect x="380" y="300" width="162" height="86" rx="8" fill="#ffffff" stroke="#2f9e44" stroke-width="1.6"/>
+    <text x="461" y="347">Sandbox</text>
+    <rect x="554" y="300" width="162" height="86" rx="8" fill="#ffffff" stroke="#2f9e44" stroke-width="1.6"/>
+    <text x="635" y="338">Signed</text><text x="635" y="356">assertion</text>
+  </g>
+</svg>

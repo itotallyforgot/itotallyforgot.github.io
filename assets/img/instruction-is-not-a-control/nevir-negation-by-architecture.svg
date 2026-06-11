@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="760" height="330" fill="#ffffff"/>
+  <text x="24" y="34" font-size="18" font-weight="700" fill="#1a1a1a">Negation accuracy by retrieval architecture</text>
+  <text x="24" y="54" font-size="13" fill="#666">NevIR pairwise accuracy. Below 25% is worse than random ranking.</text>
+  <!-- plot area x: 210..730 for 0..60% -->
+  <!-- random reference line at 25% -> 210 + 25*8.667 = 426.7 -->
+  <line x1="427" y1="78" x2="427" y2="290" stroke="#999" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="427" y="74" font-size="12" fill="#777" text-anchor="middle">random 25%</text>
+  <!-- bars -->
+  <!-- Cross-encoder 50.6 -> width 438.6 -->
+  <text x="200" y="110" font-size="13" fill="#333" text-anchor="end">Cross-encoder</text>
+  <rect x="210" y="96" width="439" height="26" fill="#2f9e44"/>
+  <text x="657" y="114" font-size="12" fill="#2f9e44" font-weight="700">50.6%</text>
+  <!-- Late-interaction 19.7 -> 170.7 -->
+  <text x="200" y="152" font-size="13" fill="#333" text-anchor="end">Late-interaction</text>
+  <rect x="210" y="138" width="171" height="26" fill="#e8590c"/>
+  <text x="389" y="156" font-size="12" fill="#e8590c" font-weight="700">19.7%</text>
+  <!-- Bi-encoder (RAG) 11.1 -> 96.2 -->
+  <text x="200" y="194" font-size="13" fill="#333" text-anchor="end">Bi-encoder (RAG)</text>
+  <rect x="210" y="180" width="96" height="26" fill="#e03131"/>
+  <text x="314" y="198" font-size="12" fill="#e03131" font-weight="700">11.1%</text>
+  <!-- Sparse 8.7 -> 75.4 -->
+  <text x="200" y="236" font-size="13" fill="#333" text-anchor="end">Sparse</text>
+  <rect x="210" y="222" width="75" height="26" fill="#e03131"/>
+  <text x="293" y="240" font-size="12" fill="#e03131" font-weight="700">8.7%</text>
+  <!-- x axis -->
+  <line x1="210" y1="290" x2="730" y2="290" stroke="#ccc" stroke-width="1"/>
+  <text x="210" y="308" font-size="11" fill="#999">0%</text>
+  <text x="640" y="308" font-size="11" fill="#999">60%</text>
+  <text x="730" y="24" font-size="11" fill="#bbb" text-anchor="end">NevIR, arXiv:2305.07614</text>
+</svg>
