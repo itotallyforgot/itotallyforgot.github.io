@@ -1,31 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
-  <rect width="760" height="330" fill="#ffffff"/>
-  <text x="24" y="34" font-size="18" font-weight="700" fill="#1a1a1a">Negation accuracy by retrieval architecture</text>
-  <text x="24" y="54" font-size="13" fill="#666">NevIR pairwise accuracy. Below 25% is worse than random ranking.</text>
-  <!-- plot area x: 210..730 for 0..60% -->
-  <!-- random reference line at 25% -> 210 + 25*8.667 = 426.7 -->
-  <line x1="427" y1="78" x2="427" y2="290" stroke="#999" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="427" y="74" font-size="12" fill="#777" text-anchor="middle">random 25%</text>
-  <!-- bars -->
-  <!-- Cross-encoder 50.6 -> width 438.6 -->
-  <text x="200" y="110" font-size="13" fill="#333" text-anchor="end">Cross-encoder</text>
-  <rect x="210" y="96" width="439" height="26" fill="#2f9e44"/>
-  <text x="657" y="114" font-size="12" fill="#2f9e44" font-weight="700">50.6%</text>
-  <!-- Late-interaction 19.7 -> 170.7 -->
-  <text x="200" y="152" font-size="13" fill="#333" text-anchor="end">Late-interaction</text>
-  <rect x="210" y="138" width="171" height="26" fill="#e8590c"/>
-  <text x="389" y="156" font-size="12" fill="#e8590c" font-weight="700">19.7%</text>
-  <!-- Bi-encoder (RAG) 11.1 -> 96.2 -->
-  <text x="200" y="194" font-size="13" fill="#333" text-anchor="end">Bi-encoder (RAG)</text>
-  <rect x="210" y="180" width="96" height="26" fill="#e03131"/>
-  <text x="314" y="198" font-size="12" fill="#e03131" font-weight="700">11.1%</text>
-  <!-- Sparse 8.7 -> 75.4 -->
-  <text x="200" y="236" font-size="13" fill="#333" text-anchor="end">Sparse</text>
-  <rect x="210" y="222" width="75" height="26" fill="#e03131"/>
-  <text x="293" y="240" font-size="12" fill="#e03131" font-weight="700">8.7%</text>
-  <!-- x axis -->
-  <line x1="210" y1="290" x2="730" y2="290" stroke="#ccc" stroke-width="1"/>
-  <text x="210" y="308" font-size="11" fill="#999">0%</text>
-  <text x="640" y="308" font-size="11" fill="#999">60%</text>
-  <text x="730" y="24" font-size="11" fill="#bbb" text-anchor="end">NevIR, arXiv:2305.07614</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" width="760" height="330" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
+  <defs>
+    <linearGradient id="sig" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F76E25"/>
+      <stop offset="1" stop-color="#C5571D"/>
+    </linearGradient>
+  </defs>
+  <text x="24" y="36" font-size="19" font-weight="650" fill="#E8E0D5" letter-spacing="0.2">Negation accuracy by retrieval architecture</text>
+  <text x="24" y="57" font-size="13" fill="#9A9A9A">NevIR pairwise accuracy. Below 25% is worse than random ranking.</text>
+
+  <!-- plot x: 212..728 for 0..60% (8.6 px/%); random 25% -> 427 -->
+  <!-- random reference, de-emphasized -->
+  <line x1="427" y1="84" x2="427" y2="286" stroke="#5A5A5A" stroke-width="1.25" stroke-dasharray="3 5"/>
+  <text x="427" y="78" font-size="11.5" fill="#8A8A8A" text-anchor="middle">random 25%</text>
+
+  <!-- bars: context grey, the RAG bi-encoder highlighted in signal -->
+  <text x="196" y="113" font-size="13" fill="#C9C2B8" text-anchor="end">Cross-encoder</text>
+  <rect x="212" y="98" width="435" height="28" rx="4" fill="#5C5C5C"/>
+  <text x="655" y="117" font-size="12" fill="#B9B2A8" font-weight="600">50.6%</text>
+
+  <text x="196" y="155" font-size="13" fill="#C9C2B8" text-anchor="end">Late-interaction</text>
+  <rect x="212" y="140" width="169" height="28" rx="4" fill="#5C5C5C"/>
+  <text x="389" y="159" font-size="12" fill="#B9B2A8" font-weight="600">19.7%</text>
+
+  <text x="196" y="197" font-size="13" fill="#F76E25" text-anchor="end" font-weight="650">Bi-encoder (RAG)</text>
+  <rect x="212" y="182" width="95" height="28" rx="4" fill="url(#sig)"/>
+  <text x="315" y="201" font-size="12.5" fill="#F76E25" font-weight="700">11.1%</text>
+
+  <text x="196" y="239" font-size="13" fill="#C9C2B8" text-anchor="end">Sparse</text>
+  <rect x="212" y="224" width="75" height="28" rx="4" fill="#5C5C5C"/>
+  <text x="295" y="243" font-size="12" fill="#B9B2A8" font-weight="600">8.7%</text>
+
+  <line x1="212" y1="286" x2="728" y2="286" stroke="#3A3A3A" stroke-width="1"/>
+  <text x="212" y="304" font-size="11" fill="#6E6E6E">0%</text>
+  <text x="708" y="304" font-size="11" fill="#6E6E6E">60%</text>
+  <text x="728" y="26" font-size="10.5" fill="#5A5A5A" text-anchor="end">NevIR, arXiv:2305.07614</text>
 </svg>
