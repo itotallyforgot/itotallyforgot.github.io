@@ -584,3 +584,11 @@ td {
   margin: 1.7rem 0;
   border-radius: var(--radius, 6px);
 }
+
+/* Essay revision notes: a dated "*Revised YYYY-MM-DD: …*{:.essay-revision}" line
+   added under a `---` at the foot of an essay edited after publication. See STYLE.md. */
+.essay-revision {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
