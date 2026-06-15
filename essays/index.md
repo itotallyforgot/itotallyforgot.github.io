@@ -10,7 +10,7 @@ Long-form writing on security, AI systems, verification, and engineering practic
 <section class="essay-index-list" aria-label="Essays">
   <article class="essay-index-card">
     <p class="eyebrow">Latest &middot; Honest AI series, part 3</p>
-    <h2><a href="/essays/instruction-is-not-a-control/">Instruction is not a control</a></h2>
+    <h2><a href="/essays/instruction-is-not-a-control/">The Emperor's New Controls</a></h2>
     <p class="essay-meta">Published June 11, 2026</p>
     <p>Across coding agents, guardrails, secrets, model personality, and retrieval, the field keeps rediscovering one rule: you cannot instruct a system into the behavior you need. You have to enforce it structurally.</p>
   </article>

@@ -1,9 +1,9 @@
 ---
 layout: essay
-title: "Instruction is not a control"
+title: "The Emperor's New Controls"
 description: "A security-practitioner argument that across coding agents, agent security, guardrails, secrets, model personality, and retrieval, the field keeps rediscovering one rule: you cannot instruct a system into the behavior you need, you have to enforce it structurally."
 date: 2026-06-11
-last_updated: 2026-06-11
+last_updated: 2026-06-15
 ---
 
 I have spent two essays honing a hypothesis. The [honest-AI essay](/essays/honest-ai/) said verify what an AI tells you, because the failure modes that matter are the ones it won't report on itself. The [receipt essay](/essays/secure-by-design-needs-a-receipt/) said record the security decision in a signed artifact before the implementation hardens around it, because a stricter prompt is still a request. I was pushing the same thread further, experimenting with different proofs and structures for implementation, when I watched [Nick Nisi's](https://youtu.be/vy7o1g2iHY8) talk. The talk hit a critical through-line in my work: he had measured the gap between what one tells an agent to do and what said agent actually does. More importantly, he had closed it with structure.
