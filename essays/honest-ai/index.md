@@ -135,3 +135,8 @@ Honest AI is not AI that never fails. That is fantasy. Honest AI is AI built so 
 The failure modes that matter most are the ones the tools won't report on themselves. Build for verification.
 
 Related: [Secure by design needs a receipt](/essays/secure-by-design-needs-a-receipt/).
+
+---
+
+*Revised 2026-06-15: added the "Provenance starts at acquisition" pattern, on verifying source integrity upstream of the model.*
+{:.essay-revision}
