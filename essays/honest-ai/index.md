@@ -3,7 +3,7 @@ layout: essay
 title: "Honest AI is the security mindset applied to AI engineering"
 description: "A security-practitioner argument for building AI systems around verification, provenance, data integrity, auditability, and honest failure reporting."
 date: 2026-05-06
-last_updated: 2026-05-20
+last_updated: 2026-06-15
 ---
 
 In May 2023, attorney Steven Schwartz filed a motion in *Mata v. Avianca* citing six federal cases that didn't exist. He'd used ChatGPT for the research. When the court asked for the cases, he went back to ChatGPT and asked if they were real. ChatGPT said yes. It pointed him to Westlaw and LexisNexis for *Varghese v. China Southern Airlines*. The cases weren't there. Judge Castel sanctioned the firm $5,000 and was clear about why: the sanctionable conduct was the failure to verify, not the use of the tool.
@@ -83,6 +83,8 @@ Honest AI is not a new moral category. It is old security muscle applied to a ne
 The patterns are not exotic. They are the things security teams already reach for when a system cannot be allowed to grade its own homework.
 
 **Citation chains.** If an output depends on retrieved evidence, every claim should point back to the source that supports it. Not a generic "sources used" list. A chain. The chunk, the document, the timestamp, the version. If the system cannot show its work, the operator should treat the answer as unaudited.
+
+**Provenance starts at acquisition.** A citation chain is only as honest as the source it points to, and the source can be a hallucination too. In my own pipeline, a local transcription step recently turned a real conference talk into fluent, confident, completely unrelated text, and a review step nearly summarized that hallucination as fact before the mismatch was caught and the file quarantined. Transcription, OCR, and scraping fail quietly, and a fabricated "source" becomes ground truth for everything downstream. Verify provenance at ingestion, not just at output, or the chain points faithfully at a lie.
 
 **Calibration as a measured property.** [Kadavath et al.](https://arxiv.org/abs/2207.05221) showed that models can have useful self-knowledge under specific conditions. That is encouraging, but it is not permission to trust confidence by default. [HELM](https://arxiv.org/abs/2211.09110) points to the better pattern: measure calibration alongside accuracy. A model that gets more answers right while becoming less reliable about its uncertainty is not purely improving. It is changing its risk profile.
 
