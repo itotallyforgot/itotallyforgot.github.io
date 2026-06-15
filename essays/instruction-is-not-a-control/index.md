@@ -16,21 +16,21 @@ You cannot instruct a system into the behavior you need, because the instruction
 
 What caught me was the room Nisi works in. He builds JavaScript developer tooling, not security systems, and he had walked straight into the thing I had spent two essays circling. So I went looking for the same shape somewhere else, and found it. Then again, and again, in fields that don't talk to each other. His test-hashing trick is one fix among many. The same law keeps surfacing in rooms that never compare notes. That is the essay. It's not mine, and it's not Nisi's. It belongs to whoever keeps tripping over it.
 
+## A law by any other name
+
+I didn't coin this, and neither did Nisi. The oldest name for it is an old bug. "Prompt injection" was named by analogy to SQL injection, the flaw where untrusted text gets treated as a command, and the fix for SQL injection was always structural: stop splicing untrusted strings into the query, bind the parameters so data can't become code. Asking the input nicely was never on the table. None of this is new. We have been losing to this trick since `DROP TABLE Students` was a punchline, and a control you write into a prompt is the emperor's new clothes. The whole court agrees to see a garment until an attacker points out the emperor is naked.
+
 ![A mother tells a school her son is named "Robert'); DROP TABLE Students;--", and the school's unsanitized database deletes its student records.](/assets/img/instruction-is-not-a-control/xkcd-327-exploits-of-a-mom.png)
 
 *xkcd 327, "Exploits of a Mom," by Randall Munroe ([CC BY-NC 2.5](https://xkcd.com/license.html)). Untrusted input becomes a command, the SQL-injection joke that is prompt injection's ancestor.*
 
-## A law by any other name
+Ken Thompson said the deep version in 1984: past a certain point you can't inspect your way to trust, you can only move it, in his [Turing Award lecture](https://dl.acm.org/doi/10.1145/358198.358210). Simon Willison, who coined the term, says the agent version: don't tell the model to be careful, [remove a leg of the lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) so the dangerous combination can't occur. Nisi says the builder version: enforce, don't instruct. The academic version arrived in June 2025 with fourteen authors behind it, from ETH Zurich, EPFL, IBM, Google, and Microsoft, proposing [design patterns for securing LLM agents](https://arxiv.org/abs/2506.08837) with, in their words, "provable resistance to prompt injection."[^provable] Their patterns work by constraining what an agent is allowed to do, not by instructing it to behave. When a 1984 Turing lecture, a fourteen-author consortium spanning industry and academia, and a JavaScript developer arrive at the same rule on their own, it's a law, not a mood. That convergence is most of the argument; the rest of this essay walks the rooms it turns up in.
+
+[^provable]: "Provable resistance" is the goal for the most constrained of the patterns; the paper scopes general-purpose agents out and frames the rest as mitigation, not immunity.
 
 ![Watercolor of the little prince standing on asteroid B-612 beside his rose under a glass globe, among small volcanoes and a starfield. A banner reads, "It is the time you have wasted for your Rose that makes your Rose so important."](/assets/img/instruction-is-not-a-control/little-prince-rose-b612.jpg)
 
 *The little prince and his rose. The section title borrows "a rose by any other name"; the law underneath keeps its meaning whatever you call it.*
-
-I didn't coin this, and neither did Nisi. The oldest name for it is an old bug. "Prompt injection" was named by analogy to SQL injection, the flaw where untrusted text gets treated as a command, and the fix for SQL injection was always structural: stop splicing untrusted strings into the query, bind the parameters so data can't become code. Asking the input nicely was never on the table. The new problem is the old problem wearing a model.
-
-Ken Thompson said the deep version in 1984: past a certain point you can't inspect your way to trust, you can only move it, in his [Turing Award lecture](https://dl.acm.org/doi/10.1145/358198.358210). Simon Willison, who coined the term, says the agent version: don't tell the model to be careful, [remove a leg of the lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) so the dangerous combination can't occur. Nisi says the builder version: enforce, don't instruct. The academic version arrived in June 2025 with fourteen authors behind it, from ETH Zurich, EPFL, IBM, Google, and Microsoft, proposing [design patterns for securing LLM agents](https://arxiv.org/abs/2506.08837) with, in their words, "provable resistance to prompt injection."[^provable] Their patterns work by constraining what an agent is allowed to do, not by instructing it to behave. When a 1984 Turing lecture, a fourteen-author consortium spanning industry and academia, and a JavaScript developer arrive at the same rule on their own, it's a law, not a mood. That convergence is most of the argument; the rest of this essay walks the rooms it turns up in.
-
-[^provable]: "Provable resistance" is the goal for the most constrained of the patterns; the paper scopes general-purpose agents out and frames the rest as mitigation, not immunity.
 
 One caveat before the rule runs away with itself. That same paper frames its patterns as a trade-off between an agent's usefulness and its safety, and knowing when to spend that trade is the point. This discipline is for high-stakes work that needs high-integrity patterns: legal filings, enterprise software, security operations, anything in finance or healthcare, anything where an AI output feeds a decision a person or an organization has to answer for. If you're building a weekend toy, instruction is fine, and wrapping it in hashes and sandboxes is friction with no payoff. Match the control to the consequence. The discipline below earns its cost only where the blast radius is real.
 {:.callout}
@@ -118,3 +118,8 @@ Build the enforcement, or you do not have it.
 *xkcd 538, "Security," by Randall Munroe ([CC BY-NC 2.5](https://xkcd.com/license.html)). The imagined control versus the cheap bypass.*
 
 Related: [Honest AI is the security mindset applied to AI engineering](/essays/honest-ai/) and [Secure by design needs a receipt](/essays/secure-by-design-needs-a-receipt/).
+
+---
+
+*Revised 2026-06-15: retitled from "Instruction is not a control," with a matching emperor's-new-clothes line added to "A law by any other name." In "Secrets and identity," a single-sourced, uncorroborated incident attribution was softened; the structural argument is unchanged.*
+{:.essay-revision}
