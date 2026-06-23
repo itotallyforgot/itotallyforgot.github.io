@@ -1,0 +1,6 @@
+rules:
+  unpinned-uses:
+    config:
+      policies:
+        "itotallyforgot/*": ref-pin
+        "*": hash-pin
